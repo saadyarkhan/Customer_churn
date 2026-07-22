@@ -7,4 +7,5 @@ jupyter
 boto3
 fastapi
 uvicorn
-pytest httpx
+pytest
+httpx
