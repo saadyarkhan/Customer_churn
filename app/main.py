@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from app.predict import predict_churn
 from app.schema import PredictionResponse, CustomerData
 import logging
+from mangum import Mangum
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -35,4 +36,5 @@ def predict(customer:CustomerData):
         raise HTTPException(status_code=500, detail=f"Prediction failed: {str(e)}")
     
 from mangum import Mangum
+
 handler = Mangum(app)
