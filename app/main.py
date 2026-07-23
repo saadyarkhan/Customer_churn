@@ -34,5 +34,7 @@ def predict(customer:CustomerData):
     except Exception as e:
         logger.error(f"Prediction failed: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Prediction failed: {str(e)}")
-        
+    
+from mangum import Mangum
+
 handler = Mangum(app)
